@@ -1,0 +1,18 @@
+body {
+    background-image: url("../images/car-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    font-family: 'Special Elite', cursive;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color: red;
+}
+
+.jumbotron {
+    background-color: #32434d;
+}
