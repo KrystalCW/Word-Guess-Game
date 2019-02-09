@@ -23,12 +23,10 @@ var hints = [
 ]
 
 var winsCounter = 0;
-// var word = $("#guessing-word");
 var selection = [];
 var dummyWord = [];
 var guessesRemaining = 10;
 var lettersGuessed = [];
-// var gamePlay = true;
 
 function computerSelect() {
     var select = books[Math.floor(Math.random()*books.length)];
@@ -38,14 +36,11 @@ function computerSelect() {
         var dummyChar = select[i].replace(/[a-z]/, "_");
         dummyWord += dummyChar;
     }
-    // console.log(dummyWord);
 }
 
 function display() {
     $("#wins-counter").html(winsCounter);
     $("#guessing-word").html(dummyWord);
-    // $("#guesses-counter").html(guessesRemaining);
-    // $("#letters-guessed").html(lettersGuessed);
 }
 
 document.onkeydown = function(event) {
@@ -62,7 +57,6 @@ document.onkeydown = function(event) {
                 guessesRemaining = guessesRemaining - 1;
                 winLose();
                 $("#guesses-counter").html(guessesRemaining);
-                display();
             }
             while (indexNumber > -1) {
                 positions.push(indexNumber);
@@ -88,23 +82,23 @@ function winLose() {
     if (dummyWord.indexOf("_") < 0) {
         alert("Yay!! Great job!");
         winsCounter++;
+        dummyWord = "";
         resetScreen();
     }
     else if (guessesRemaining < 1) {
         alert("Sorry! No more guesses. You lose :(");
         resetScreen();
     }
+}
 
-    function resetScreen() {
-        computerSelect();
-        guessesRemaining = 10;
-        lettersGuessed = [];
-        $("#guesses-counter").html(guessesRemaining);
-        $("#letters-guessed").html(lettersGuessed);
-        $("#guessing-word").html(dummyWord);
-    }
+function resetScreen() {
+    computerSelect();
+    guessesRemaining = 10;
+    lettersGuessed = [];
+    $("#guesses-counter").html(guessesRemaining);
+    $("#letters-guessed").html(lettersGuessed);
+    $("#guessing-word").html(dummyWord);
 }
 
 computerSelect();
 display();
-// winLose();
