@@ -52,7 +52,7 @@ function display() {
     $("#letters-guessed").html(lettersGuessed);
 }
 
-document.onkeydown = function userInput() {
+document.onkeydown = function userInput(event) {
     gamePlay = false;
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         var letter = event.key;
