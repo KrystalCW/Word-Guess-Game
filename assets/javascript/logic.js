@@ -39,7 +39,7 @@ function computerSelect() {
 }
 
 function display() {
-    $("#wins-counter").html(winsCounter);
+    // $("#wins-counter").html(winsCounter);
     $("#guessing-word").html(dummyWord);
 }
 
@@ -82,6 +82,7 @@ function winLose() {
     if (dummyWord.indexOf("_") < 0) {
         alert("Yay!! Great job!");
         winsCounter++;
+        $("#wins-counter").html(winsCounter);
         dummyWord = "";
         resetScreen();
     }
